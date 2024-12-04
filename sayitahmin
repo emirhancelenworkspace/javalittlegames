@@ -1,0 +1,44 @@
+// 0 ile 100 arası sayı tahmin etme oyunu yaptım. 
+package boredtesting;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class boredd {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Random random = new Random();
+		System.out.println("Sayı tahmin uygulamamıza hoş geldiniz.");
+		int x = random.nextInt(101);
+		int yukari = 100;
+		int asagi = 0;
+		System.out.println("Aklımda bir sayı tuttum. O sayıyı tahmin etmeye ne dersin?");
+		System.out.println("-----------------------------------------------------------");
+		System.out.print("Hadi, aklındaki sayıyı söyle:   ");
+		for (int j = 5; j > 0; j--) {
+			int tahmin = scanner.nextInt();
+			if (j == 1) {
+				System.out.println("---------------------------------------------------");
+				System.out.println("Son bir tahmin hakkınız kaldı. İyi değerlendirin...");
+				System.out.println("---------------------------------------------------");
+			}
+			if (tahmin == x) {
+				System.out.println("Evet, doğru sayıyı buldunuz.");
+				break;
+			}else if (tahmin < x) {
+				System.out.println("Hayır! Aklımdaki sayı bu değildi... " );
+				asagi = tahmin;
+				System.out.print((asagi)+ "-" + (yukari) + " arasındaki aralıktan yeniden tahmin yapınız:    " );
+				continue;
+			}else if (tahmin > x) {
+				System.out.println("Hayır! Aklımdaki sayı bu değildi... ");
+				yukari = tahmin;
+				System.out.print(asagi + "-" + yukari + " aralığında yeni bir tahmin yapınız:  ");
+				continue;
+			}
+		}
+
+	}
+
+}
